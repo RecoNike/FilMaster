@@ -30,7 +30,7 @@ class TopMoviesFragment : Fragment(), MovieAdapter.OnLoadMoreListener {
 
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = MovieAdapter(this)
+        adapter = MovieAdapter(this, parentFragmentManager)
         recyclerView.adapter = adapter
 
         loadMovies()
@@ -68,6 +68,7 @@ class TopMoviesFragment : Fragment(), MovieAdapter.OnLoadMoreListener {
             val movieObject = resultsArray.getJSONObject(i)
             val id = movieObject.getInt("id")
             val title = movieObject.getString("title")
+            val description = movieObject.getString("overview")
             val genreIdsArray = movieObject.getJSONArray("genre_ids")
             val genreIds = mutableListOf<Int>()
             for (j in 0 until genreIdsArray.length()) {
@@ -77,7 +78,7 @@ class TopMoviesFragment : Fragment(), MovieAdapter.OnLoadMoreListener {
             val rating = movieObject.getDouble("vote_average")
             val posterPath = "https://image.tmdb.org/t/p/w500${movieObject.getString("poster_path")}"
 
-            val movie = MovieModel(id, title, genreIds, releaseYear, rating, posterPath)
+            val movie = MovieModel(id, title, genreIds, releaseYear, rating, posterPath, description)
             movies.add(movie)
         }
 

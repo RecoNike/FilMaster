@@ -6,7 +6,8 @@ data class MovieModel(
     val genreIds: List<Int>, // Обновлено на List<Int>
     val releaseYear: String,
     val rating: Double,
-    val posterPath: String
+    val posterPath: String,
+    val description : String
 )
 
 fun getGenreDescription(genreIds: List<Int>): String {

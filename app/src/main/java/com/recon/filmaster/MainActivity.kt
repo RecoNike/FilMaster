@@ -8,6 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.recon.filmaster.Fragments.AboutFragment
+import com.recon.filmaster.Fragments.FavoriteFragment
+import com.recon.filmaster.Fragments.MatchFragment
+import com.recon.filmaster.Fragments.SearchFragment
+import com.recon.filmaster.Fragments.SettingsFragment
+import com.recon.filmaster.Fragments.TopMoviesFragment
 
 
 class MainActivity : AppCompatActivity() {

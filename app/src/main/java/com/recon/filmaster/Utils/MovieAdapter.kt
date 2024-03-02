@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.recon.filmaster.R
 
+
+//wakaTest
 class MovieAdapter(
     private val onLoadMoreListener: OnLoadMoreListener? = null
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

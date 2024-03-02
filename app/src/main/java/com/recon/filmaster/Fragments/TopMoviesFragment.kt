@@ -1,4 +1,4 @@
-package com.recon.filmaster
+package com.recon.filmaster.Fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.recon.filmaster.R
 import com.recon.filmaster.Utils.MovieAdapter
 import com.recon.filmaster.Utils.MovieModel
 import com.recon.filmaster.Utils.VolleyRequest

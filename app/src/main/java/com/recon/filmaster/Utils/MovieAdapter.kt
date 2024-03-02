@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.recon.filmaster.R
@@ -12,8 +13,10 @@ import com.recon.filmaster.R
 
 //wakaTest
 class MovieAdapter(
-    private val onLoadMoreListener: OnLoadMoreListener? = null
+    private val onLoadMoreListener: OnLoadMoreListener? = null,
+            private val fragmentManager: FragmentManager
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
 
     private val VIEW_TYPE_ITEM = 0
     private val VIEW_TYPE_LOADING = 1
@@ -70,19 +73,22 @@ class MovieAdapter(
         private val releaseYearTextView: TextView = itemView.findViewById(R.id.yearTv)
         private val ratingTV : TextView = itemView.findViewById(R.id.ratingTv)
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        private val descTv : TextView = itemView.findViewById(R.id.descTv)
+
+        init {
+            itemView.setOnClickListener{
+                val dialog = CustomDialogFragment.newInstance(titleTextView.text.toString(),
+                    descTv.text.toString())
+                dialog.show(fragmentManager, "CustomDialog")
+            }
+        }
 
         fun bind(movie: MovieModel) {
             titleTextView.text = movie.title
             genreTextView.text = getGenreDescription(movie.genreIds) // Используйте функцию getGenreDescription для получения строкового представления жанров
             releaseYearTextView.text = movie.releaseYear
             ratingTV.text = movie.rating.toString()
-
-//            if (ratingTV.text.toString().toDouble() >= 7.0){
-//                ratingTV.setTextColor(Color.parseColor("#AAFFAA"))
-//            }
-//            if(ratingTV.text.toString().toDouble() <= 3.0){
-//                ratingTV.setTextColor(Color.parseColor("#FFAAAA"))
-//            }
+            descTv.text = movie.description
 
             // Загрузка постера фильма с использованием Glide или другой библиотеки
             Glide.with(itemView)
@@ -92,6 +98,7 @@ class MovieAdapter(
         }
     }
 
+
     inner class LoadingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val progressBar: ImageView = itemView.findViewById(R.id.progressBar)
     }
@@ -99,4 +106,5 @@ class MovieAdapter(
     interface OnLoadMoreListener {
         fun onLoadMore()
     }
+
 }

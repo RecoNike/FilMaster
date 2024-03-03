@@ -25,7 +25,7 @@ class CustomDialogFragment : DialogFragment() {
         val filmName = arguments?.getString("filmName")
         val filmDesc = arguments?.getString("filmDesc")
         val nameField: TextView = view.findViewById(R.id.textViewTitle)
-        val descriptionField : TextView = view.findViewById(R.id.textViewDescription)
+        val descriptionField: TextView = view.findViewById(R.id.textViewDescription)
         nameField.text = filmName
         descriptionField.text = filmDesc
 

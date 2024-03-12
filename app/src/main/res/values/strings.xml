@@ -1,5 +1,26 @@
 <resources>
     <string name="app_name">FilMaster</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="genres">
+        <item>Все</item>
+        <item>Боевик</item>
+        <item>Приключения</item>
+        <item>Мультфильм</item>
+        <item>Комедия</item>
+        <item>Криминал</item>
+        <item>Документальный</item>
+        <item>Драма</item>
+        <item>Семейный</item>
+        <item>Фэнтези</item>
+        <item>Исторический</item>
+        <item>Ужасы</item>
+        <item>Музыка</item>
+        <item>Детектив</item>
+        <item>Мелодрама</item>
+        <item>Фантастика</item>
+        <item>Телевизионный фильм</item>
+        <item>Триллер</item>
+        <item>Военный</item>
+        <item>Вестерн</item>
+    </string-array>
 </resources>
